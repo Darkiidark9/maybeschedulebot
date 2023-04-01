@@ -1,0 +1,13 @@
+import telegram
+
+def start(update, context):
+    context.bot.send_message(chat_id=update.effective_chat.id, text="Привет! Я бот.")
+
+def main():
+    updater = telegram.Updater(token='6230115238:AAH_2b_mPHuhoQypZM-IIbs0vJt9VGBVsqQ', use_context=True)
+    dispatcher = updater.dispatcher
+    dispatcher.add_handler(telegram.CommandHandler('start', start))
+    updater.start_polling()
+
+if __name__ == '__main__':
+    main()
